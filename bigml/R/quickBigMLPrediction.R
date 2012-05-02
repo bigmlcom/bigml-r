@@ -8,9 +8,8 @@
 #' @param name A string giving the name of the prediction.
 #' @param prediction_only if TRUE, only the predicted value is returned.
 #' 	Otherwise, the full API response is returned.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 quickBigMLPrediction <-
 function (model, values, name = NULL, prediction_only = TRUE, 
     ...) 

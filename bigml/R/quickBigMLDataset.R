@@ -7,9 +7,8 @@
 #'	creating the dataset.
 #' @param size A numeric value giving the amount (in bytes) of the source
 #'	to use.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 #' @examples 
 #' \dontrun{
 #' # simple example

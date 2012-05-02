@@ -10,9 +10,8 @@
 #' @param name A string giving the name of the model.
 #' @param range A two element numeric vector that defines a range over 
 #'	the dataset in which to train on.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 quickBigMLModel <-
 function (data, holdout = 0.2, input_fields = names(data), objective_fields = tail(names(data), 
     n = 1), name = paste(deparse(substitute(data)), "'s model", 

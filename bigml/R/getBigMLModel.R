@@ -1,9 +1,8 @@
 #' Retrieving a BigML Model
 #' @export 
 #' @param model_id A string giving the model id.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 getBigMLModel <-
 function (model_id, ...) 
 {

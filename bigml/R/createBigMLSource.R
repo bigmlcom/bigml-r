@@ -14,16 +14,15 @@
 #'	trimmed.
 #' @param flatten A logical value indicating whether or not the returned 
 #'	field objects should be "flattened"	into a data frame.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
-#' @return A BigML source response.  See \url{https://bigml.com/developers/sources}
+#' @template dots
+#' @return A BigML source response.
 #' @examples 
 #' \dontrun{
 #' # simple example
 #' m1 = createBigMLSource("/tmp/iris.csv")
 #' 
 #' }
+#' @template author
 createBigMLSource <-
 function (file_name, name =basename(file_name), header = TRUE, 
 	locale = "en-US", missing_tokens = c("NA"), quote = "\"", 

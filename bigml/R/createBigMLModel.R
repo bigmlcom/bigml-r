@@ -6,9 +6,7 @@
 #' @param name the name to give to the model.
 #' @param objective_field_ids a vector of objective fields used for training.
 #' @param range a vector of two values that define a range of instances from the dataset to train on.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
 #' @return A BigML response object
 #' @examples 
 #' \dontrun{
@@ -20,7 +18,7 @@
 #' }
 #' @references 
 #' \url{https://bigml.com/developers/datasets}
-#' @author Justin Donaldson \email{donaldson@@bigml.com}
+#' @template author
 
 createBigMLModel <-
 function (dataset_id, holdout = 0.2, input_field_ids = NULL, 

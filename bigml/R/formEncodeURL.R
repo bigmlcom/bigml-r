@@ -6,6 +6,7 @@
 #'	for individual API requests; or \code{limit} or \code{offset} parameters
 #' 	useful for paging through list requests.
 #' @return form-encoded string result
+#' @template author
 formEncodeURL <-
 function (a,...) 
 {

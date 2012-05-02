@@ -4,9 +4,8 @@
 #' @param source_id A string giving the name of the source id.
 #' @param include_overview A logical value indicating whether to provide a
 #'	simple data frame overview of fields.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 getBigMLDataset <-
 function (source_id, include_overview = TRUE, ...) 
 {

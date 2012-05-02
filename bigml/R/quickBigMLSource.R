@@ -12,9 +12,8 @@
 #' @param trim A logical value indicating whether to trim white space.
 #' @param flatten A logical value indicating whether to flatten the response
 #'	into a data frame.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).s 
+#' @template dots
+#' @template author
 quickBigMLSource <-
 function (data, name = deparse(substitute(data)), header = !is.null(names(data)), 
     locale = "en-US", missing_tokens = c("NA"), quote = "\"", trim = TRUE, flatten = TRUE, ...){

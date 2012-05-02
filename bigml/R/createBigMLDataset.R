@@ -5,9 +5,7 @@
 #' @param field_ids A list of field ids and field properties.  See example.
 #' @param name The name for the dataset.
 #' @param size The amount (in bytes) of the source to use for creating the dataset.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
 #' @return A BigML response object
 #' @examples 
 #' \dontrun{
@@ -16,9 +14,7 @@
 #' # configure a number of different parameters
 #' createBigMLDataset("source/2", field_ids=c('000001'), name='test', size=10)
 #' }
-#' @references 
-#' \url{https://bigml.com/developers/datasets}
-#' @author Justin Donaldson \email{donaldson@@bigml.com}
+#' @template author
 #' @details Two functions are provided for creating datasets. \code{createBigmlDataset} accepts source id strings
 createBigMLDataset <-
 function (source_id, field_ids = NULL, name = NULL, size = NULL, 

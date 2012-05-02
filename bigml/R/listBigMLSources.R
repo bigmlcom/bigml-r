@@ -5,9 +5,8 @@
 #' @param sources_only A logical value indicating whether to only return 
 #'	the data frame of source information (only valid if \code{flatten} is 
 #'	\code{TRUE}).
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
+#' @template author
 listBigMLSources <-
 function (flatten = TRUE, sources_only = TRUE, 
     ...) 

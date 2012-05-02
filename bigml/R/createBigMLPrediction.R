@@ -4,9 +4,7 @@
 #' @param input_field_ids a list of input field ids and values to make a 
 #'	prediction for (see example).
 #' @param name character string; The given name for the prediction.
-#' @param \dots Arbitrary named arguments that are passed on to 
-#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
-#'	(see examples).
+#' @template dots
 #' @return A BigML response object
 #' @examples 
 #' \dontrun{
@@ -20,7 +18,7 @@
 #' }
 #' @references 
 #' \url{https://bigml.com/developers/datasets}
-#' @author Justin Donaldson \email{donaldson@@bigml.com}
+#' @template author
 createBigMLPrediction <-
 function (model_id, input_field_ids, name = NULL, ...) 
 {
