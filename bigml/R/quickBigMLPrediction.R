@@ -1,0 +1,41 @@
+#' Quickly Creating BigML Predictions
+#' @export 
+#' @family quick-methods
+#' @param model A character string or response object containing a valid model
+#' id value.
+#' @param values A named vector or list of elements to retrieve a prediction
+#'	for
+#' @param name A string giving the name of the prediction.
+#' @param prediction_only if TRUE, only the predicted value is returned.
+#' 	Otherwise, the full API response is returned.
+#' @param \dots Arbitrary named arguments that are passed on to 
+#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
+#'	(see examples).
+quickBigMLPrediction <-
+function (model, values, name = NULL, prediction_only = TRUE, 
+    ...) 
+{
+    model_id = .resolve_resource_id(model, "model")
+    if (is.null(names(values))) {
+        stop("values argument must have named values")
+    }
+    option = list()
+    option$model = model_id
+    mresponse = getBigMLModel(model_id)
+    idlist = list()
+    for (v in names(values)) {
+        m_id = .resolve_field_id(v, mresponse$model$fields)
+        if (is.null(m_id)) {
+            stop(paste("value does not exist in model:", v))
+        }
+        idlist[m_id] = values[v]
+    }
+    option$input_data = idlist
+    if (!is.null(name)) 
+        option$name = name
+    response = .basic_api(.PREDICTION_URL)$postJson(option, ...)
+    prediction = response$prediction
+    if (prediction_only) 
+        prediction = as.vector(response$prediction)
+    return(prediction)
+}

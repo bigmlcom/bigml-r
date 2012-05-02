@@ -1,0 +1,16 @@
+#' Set BigML API authentication credentials
+#' @export 
+#' @param username use the given username for all subsequent API requests
+#' @param api_key use the given api key for all subsequent API requests
+#' @return NULL
+#' @examples 
+#' \dontrun{
+#' # replace with your valid credentials:
+#'	setBigmlCredentials('username', 'key')
+#' }
+setBigMLCredentials <-
+function (username, api_key) 
+{
+    Sys.setenv(BIGMLUSER=username)
+    Sys.setenv(BIGMLAPIKEY=api_key)
+}

@@ -1,0 +1,36 @@
+#' Quickly Creating BigML Sources
+#' @export 
+#' @family quick-methods
+#' @param data A matrix or data frame containing data to upload to bigml.
+#' @param name A string giving the name of the source.
+#' @param header A logical value indicating whether to use the first row 
+#' 	of data as a header row.
+#' @param locale A string indicating the desired locale.
+#' @param missing_tokens A vector listing strings that should be treated as 
+#'	missing.
+#' @param quote A string giving the quote character to use.
+#' @param trim A logical value indicating whether to trim white space.
+#' @param flatten A logical value indicating whether to flatten the response
+#'	into a data frame.
+#' @param \dots Arbitrary named arguments that are passed on to 
+#'	\code{\link{formEncodeURL}} in order to create form-encoded URL options 
+#'	(see examples).s 
+quickBigMLSource <-
+function (data, name = deparse(substitute(data)), header = !is.null(names(data)), 
+    locale = "en-US", missing_tokens = c("NA"), quote = "\"", trim = TRUE, flatten = TRUE, ...){
+	
+	file_name = paste(tempdir(), "/", name, ".csv.gz", sep = "")
+	file_handle = gzfile(file_name, "w")
+	writef = write.csv
+	if (!header) {
+	    write.table(data, file = file_handle, row.names = F, 
+	        col.names = F, sep = ",")
+	}
+	else {
+	    write.csv(data, file = file_handle, row.names = F)
+	}
+	close(file_handle)
+	createBigMLSource(file_name, name=name, header=header, locale=locale, 
+		missing_tokens=missing_tokens, quote=quote, 
+		trim=trim, flatten=flatten, ...)
+}
