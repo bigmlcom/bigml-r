@@ -1,24 +1,23 @@
 #' Creating BigML Datasets
 #' @export 
-#' @family dataset-methods
+#' @templateVar family_name dataset
+#' @template family
 #' @param source_id The relevant source id.
 #' @param field_ids A list of field ids and field properties.  See example.
 #' @param name The name for the dataset.
 #' @param size The amount (in bytes) of the source to use for creating the dataset.
 #' @template dots
-#' @return A BigML response object
+#' @template dataset_return
 #' @examples 
 #' \dontrun{
 #' # simple create dataset example
-#' createBigMLDataset("source/1")
+#' createDataset("source/1")
 #' # configure a number of different parameters
-#' createBigMLDataset("source/2", field_ids=c('000001'), name='test', size=10)
+#' createDataset("source/2", field_ids=c('000001'), name='test', size=10)
 #' }
 #' @template author
-#' @details Two functions are provided for creating datasets. \code{createBigmlDataset} accepts source id strings
-createBigMLDataset <-
-function (source_id, field_ids = NULL, name = NULL, size = NULL, 
-    ...) 
+createDataset <-
+function (source_id, field_ids = NULL, name = NULL, size = NULL, ...) 
 {
     option = list()
     option$source = source_id
@@ -32,7 +31,7 @@ function (source_id, field_ids = NULL, name = NULL, size = NULL,
     while (response$code == 201) {
         message("Dataset creation in progress...")
         Sys.sleep(5)
-        response = getBigMLDataset(response$resource)
+        response = getDataset(response$resource)
     }
     return(response)
 }

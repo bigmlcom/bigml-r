@@ -7,9 +7,9 @@
 #' @examples 
 #' \dontrun{
 #' # replace with your valid credentials:
-#'	setBigmlCredentials('username', 'key')
+#'	setCredentials('username', 'key')
 #' }
-setBigMLCredentials <-
+setCredentials <-
 function (username, api_key) 
 {
     Sys.setenv(BIGMLUSER=username)

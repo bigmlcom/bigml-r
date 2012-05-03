@@ -33,12 +33,18 @@ function (resource)
         .check_for_code(result)
         result
     }, postJson = function(postfields, ...) {
+		if ('debug' %in% names(list(...))){
+			writeLines(toJSON(postfields))
+		}
         result = fromJSON(getURL(.build_url(resource, ...), customrequest = "POST", 
             httpheader = c(`Content-Type` = "application/json"), 
             postfields = toJSON(postfields)))
         .check_for_code(result)
         result
     }, putJson = function(id, postfields, ...) {
+		if ('debug' %in% names(list(...))){
+			writeLines(toJSON(postfields))
+		}
         resource = paste(resource, "/", id, sep = "")
         result = fromJSON(getURL(.build_url(resource, ...), customrequest = "POST", 
             httpheader = c(`Content-Type` = "application/json"), 
@@ -59,7 +65,11 @@ function (resource)
 .build_url <-
 function (request, ...) 
 {
-    paste(request, formEncodeURL(...), sep = "")
+	val = paste(request, formEncodeURL(...), sep = "")
+	if ('debug' %in% names(list(...))){
+		message(val)
+	}
+    val
 }
 .check_for_code <-
 function (result) 
@@ -118,6 +128,7 @@ function (x, name)
         }
     }
     else if (class(x) == "character") {
+		x = .fixid(x)
         return(paste(name, "/", x, sep = ""))
     }
     else {
@@ -127,3 +138,4 @@ function (x, name)
 .success_codes <-
 structure(list(HTTP_OK = 200, HTTP_CREATED = 201, HTTP_ACCEPTED = 202), .Names = c("HTTP_OK", 
 "HTTP_CREATED", "HTTP_ACCEPTED"))
+

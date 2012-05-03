@@ -1,5 +1,5 @@
-This repo contains the source code used to generate the bigml api bindings 
-for R.
+This repo contains the source code used to generate the BigML api bindings 
+for R.  
 
 There is a small bundle.R script that will build a CRAN-ready bundle.
 [Roxygen2](http://cran.r-project.org/web/packages/roxygen2/index.html) is 

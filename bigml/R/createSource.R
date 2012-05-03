@@ -1,5 +1,7 @@
 #' Creating BigML Sources
 #' @export 
+#' @templateVar family_name source
+#' @template family
 #' @param file_name A string giving a file location
 #' @param name A string specifying the name of the source
 #' @param header logical; TRUE if data contains name information, false 
@@ -15,15 +17,16 @@
 #' @param flatten A logical value indicating whether or not the returned 
 #'	field objects should be "flattened"	into a data frame.
 #' @template dots
-#' @return A BigML source response.
+#' @details createSource
+#' @template source_return
 #' @examples 
 #' \dontrun{
 #' # simple example
-#' m1 = createBigMLSource("/tmp/iris.csv")
+#' m1 = createSource("/tmp/iris.csv")
 #' 
 #' }
 #' @template author
-createBigMLSource <-
+createSource <-
 function (file_name, name =basename(file_name), header = TRUE, 
 	locale = "en-US", missing_tokens = c("NA"), quote = "\"", 
 	separator = ",", trim = TRUE, flatten = TRUE, ...) 
@@ -38,7 +41,7 @@ function (file_name, name =basename(file_name), header = TRUE,
     while (response$code == 201) {
         message("Source creation in progress...")
         Sys.sleep(5)
-        response = getBigMLSource(response$resource, flatten = flatten, ...)
+        response = getSource(response$resource, flatten = flatten, ...)
     }
     unlink(file_name)
     response

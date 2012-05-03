@@ -1,6 +1,8 @@
 #' Quickly Creating BigML Datasets
-#' @family quick-methods dataset-methods
 #' @export 
+#' @templateVar family_name dataset
+#' @template family
+#' @family quick methods
 #' @param data A matrix or data frame containing data to upload to bigml.
 #' @param name A string giving the name for the dataset.
 #' @param fields A vector of names in \code{data} that should be used for 
@@ -8,21 +10,22 @@
 #' @param size A numeric value giving the amount (in bytes) of the source
 #'	to use.
 #' @template dots
+#' @template dataset_return
 #' @template author
 #' @examples 
 #' \dontrun{
 #' # simple example
-#' quickBigMLDataset(iris)
+#' quickDataset(iris)
 #' # configure a number of different parameters
-#' quickBigMLDataset(iris, fields = c('Species', 'Sepal.length'), 
+#' quickDataset(iris, fields = c('Species', 'Sepal.length'), 
 #'	name='test', size=10000)
 #' }
-quickBigMLDataset <-
+quickDataset <-
 function (data, fields = names(data), name = paste(deparse(substitute(data)), 
     "'s dataset", sep = ""), size = NULL, ...) 
 {
     option = list()
-    sresponse = createBigMLSource(data,  name = deparse(substitute(data)), 
+    sresponse = quickSource(data,  name = deparse(substitute(data)), 
 		flatten = F, ...)
     if (is.null(name)) 
         name = paste(sresponse$file_name, "'s dataset", sep = "")
@@ -46,7 +49,7 @@ function (data, fields = names(data), name = paste(deparse(substitute(data)),
     while (response$code == 201) {
         message("Dataset creation in progress...")
         Sys.sleep(5)
-        response = getBigMLDataset(response$resource, ...)
+        response = getDataset(response$resource, ...)
     }
     return(response)
 }

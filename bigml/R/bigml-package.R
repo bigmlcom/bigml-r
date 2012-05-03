@@ -17,25 +17,25 @@
 #' @name bigml-package
 #' @aliases bigml
 #' @docType package
-#' @author Justin Donaldson \email{donaldson@@bigml.com}
-#' @keywords package 
+#' @template author
+#' @keywords package
 #' @examples 
 #' \dontrun{
 #' 	# set default credentials
-#' 	setBigmlCredentials('username', 'key')
-#' 	model = quickBigMLModel(iris, 'Species')
-#' 	quickBigMLPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4))
+#' 	setCredentials('username', 'key')
+#' 	model = quickModel(iris, 'Species')
+#' 	quickPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4))
 #'
 #' 	# use specific credentials
-#' 	quickBigMLPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4), username='someuser', api_key='somekey')
+#' 	quickPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4), username='someuser', api_key='somekey')
 #'  
 #'	# list most recent sources
-#'  listBigMLSources()
+#'  listSources()
 #'
 #' 	# specify limit and offset
-#'  listBigMLModels(limit=15,offset=300)
+#'  listModels(limit=15,offset=300)
 #'
 #'	# specify filter criteria
-#'  listBigMLDatasets(size__gt=1048576)
+#'  listDatasets(size__gt=1048576)
 #' }
 NULL

@@ -1,6 +1,8 @@
 #' Quickly Creating BigML Sources
 #' @export 
-#' @family quick-methods
+#' @templateVar family_name source
+#' @template family
+#' @family quick methods
 #' @param data A matrix or data frame containing data to upload to bigml.
 #' @param name A string giving the name of the source.
 #' @param header A logical value indicating whether to use the first row 
@@ -13,23 +15,21 @@
 #' @param flatten A logical value indicating whether to flatten the response
 #'	into a data frame.
 #' @template dots
+#' @template source_return
 #' @template author
-quickBigMLSource <-
-function (data, name = deparse(substitute(data)), header = !is.null(names(data)), 
-    locale = "en-US", missing_tokens = c("NA"), quote = "\"", trim = TRUE, flatten = TRUE, ...){
+#' @return source_return
+quickSource <-
+function (data, name = deparse(substitute(data)), 
+	header = !is.null(names(data)), locale = "en-US", 
+	missing_tokens = c("NA"), quote = "\"", trim = TRUE, flatten = TRUE, ...){
 	
 	file_name = paste(tempdir(), "/", name, ".csv.gz", sep = "")
 	file_handle = gzfile(file_name, "w")
-	writef = write.csv
-	if (!header) {
-	    write.table(data, file = file_handle, row.names = F, 
-	        col.names = F, sep = ",")
-	}
-	else {
-	    write.csv(data, file = file_handle, row.names = F)
-	}
+    write.table(data, file = file_handle, row.names = F, 
+        col.names = header, sep = ",")
+
 	close(file_handle)
-	createBigMLSource(file_name, name=name, header=header, locale=locale, 
+	createSource(file_name, name=name, header=header, locale=locale, 
 		missing_tokens=missing_tokens, quote=quote, 
 		trim=trim, flatten=flatten, ...)
 }

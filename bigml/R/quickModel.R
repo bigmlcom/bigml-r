@@ -1,6 +1,8 @@
 #' Quickly Creating BigML Models
-#' @family quick-methods
 #' @export 
+#' @templateVar family_name model
+#' @template family
+#' @family quick methods
 #' @param data A matrix or data frame containing data to upload to bigml.
 #' @param holdout A numeric value giving the ratio of dataset instances to 
 #'	use as a holdout set for post-train pruning.
@@ -11,13 +13,14 @@
 #' @param range A two element numeric vector that defines a range over 
 #'	the dataset in which to train on.
 #' @template dots
+#' @template model_return
 #' @template author
-quickBigMLModel <-
+quickModel <-
 function (data, holdout = 0.2, input_fields = names(data), objective_fields = tail(names(data), 
     n = 1), name = paste(deparse(substitute(data)), "'s model", 
     sep = ""), range = NULL, ...) 
 {
-    dresponse = quickBigMLDataset(data)
+    dresponse = quickDataset(data)
     option = list()
     option$dataset = dresponse$resource
     if (!is.null(range)) 
@@ -52,7 +55,7 @@ function (data, holdout = 0.2, input_fields = names(data), objective_fields = ta
     while (response$code == 201) {
         message("Model creation in progress...")
         Sys.sleep(5)
-        response = getBigMLModel(response$resource)
+        response = getModel(response$resource)
     }
     return(response)
 }

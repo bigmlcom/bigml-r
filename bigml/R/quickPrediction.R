@@ -1,6 +1,8 @@
 #' Quickly Creating BigML Predictions
 #' @export 
-#' @family quick-methods
+#' @templateVar family_name prediction
+#' @template family
+#' @family quick methods
 #' @param model A character string or response object containing a valid model
 #' id value.
 #' @param values A named vector or list of elements to retrieve a prediction
@@ -8,11 +10,12 @@
 #' @param name A string giving the name of the prediction.
 #' @param prediction_only if TRUE, only the predicted value is returned.
 #' 	Otherwise, the full API response is returned.
-#' @template dots
+#' @template dots 
+#' @template prediction_return
 #' @template author
-quickBigMLPrediction <-
-function (model, values, name = NULL, prediction_only = TRUE, 
-    ...) 
+#' @return A numeric or string value giving the prediction.
+quickPrediction <-
+function (model, values, name = NULL, prediction_only = TRUE, ...) 
 {
     model_id = .resolve_resource_id(model, "model")
     if (is.null(names(values))) {
@@ -20,7 +23,7 @@ function (model, values, name = NULL, prediction_only = TRUE,
     }
     option = list()
     option$model = model_id
-    mresponse = getBigMLModel(model_id)
+    mresponse = getModel(model_id, ...)
     idlist = list()
     for (v in names(values)) {
         m_id = .resolve_field_id(v, mresponse$model$fields)
