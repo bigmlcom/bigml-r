@@ -14,6 +14,10 @@
 #'	the dataset in which to train on.
 #' @template dots
 #' @template model_return
+#' @details quickModel will take its "data" dataframe argument and attempt 
+#' 	to create a dataset using \code{\link{quickDataset}}.  It is possible to 
+#'	specify the input_fields and objective_fields using the simple names from
+#'	the \code{data} argument.
 #' @template author
 quickModel <-
 function (data, holdout = 0.2, input_fields = names(data), objective_fields = tail(names(data), 

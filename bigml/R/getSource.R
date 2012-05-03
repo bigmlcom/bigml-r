@@ -7,6 +7,7 @@
 #'	into a data frame.
 #' @template dots
 #' @template author
+#' @template normal_methods
 #' @template source_return
 getSource <-
 function (source_id, flatten = TRUE) 

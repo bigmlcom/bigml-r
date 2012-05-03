@@ -14,6 +14,9 @@
 #' @template prediction_return
 #' @template author
 #' @return A numeric or string value giving the prediction.
+#' @details quickPrediction can operate on a model id string, or a model 
+#'	response object from an earlier request.  The \code{values} are a list of 
+#'	named elements that are used as input.  
 quickPrediction <-
 function (model, values, name = NULL, prediction_only = TRUE, ...) 
 {

@@ -5,6 +5,7 @@
 #' @param model_id A string giving the model id.
 #' @template dots
 #' @template model_return
+#' @template normal_methods
 #' @template author
 getModel <-
 function (model_id, ...) 

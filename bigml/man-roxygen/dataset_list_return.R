@@ -22,7 +22,7 @@
 #' \item{status.serialized_rows}{numeric}
 #' \item{updated}{character}
 #'
-#' If flatten is TRUE and sources_only = FALSE a list of:
+#' If flatten is TRUE and datasets_only = FALSE a list of:
 #' \item{meta}{list}
 #' \item{datasets}{data.frame}
 #' \item{fields}{data.frame} 

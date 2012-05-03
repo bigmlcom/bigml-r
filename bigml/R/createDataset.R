@@ -2,12 +2,13 @@
 #' @export 
 #' @templateVar family_name dataset
 #' @template family
-#' @param source_id The relevant source id.
+#' @param source_id The relevant source id used to build the dataset.
 #' @param field_ids A list of field ids and field properties.  See example.
 #' @param name The name for the dataset.
 #' @param size The amount (in bytes) of the source to use for creating the dataset.
 #' @template dots
 #' @template dataset_return
+#' @template normal_methods
 #' @examples 
 #' \dontrun{
 #' # simple create dataset example

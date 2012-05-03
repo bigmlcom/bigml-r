@@ -16,8 +16,14 @@
 #'	into a data frame.
 #' @template dots
 #' @template source_return
+#' @details quickSource will take its "data" dataframe argument and attempt 
+#' 	to create an equivalent BigML source.  It does this by converting the 
+#'	dataframe to a csv file, compressing it, and uploading it directly to 
+#'	BigML.  Generally, it's better to use \code{\link{quickDataset}}, since 
+#'	this method attempts to preserve any type information in the data frame.
+#' @note It is not currently possible to retrieve the original file from 
+#'	BigML, but it is possible to delete it. 
 #' @template author
-#' @return source_return
 quickSource <-
 function (data, name = deparse(substitute(data)), 
 	header = !is.null(names(data)), locale = "en-US", 

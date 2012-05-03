@@ -10,6 +10,7 @@
 #' @param range a vector of two values that define a range of instances from the dataset to train on.
 #' @template dots
 #' @return model_return
+#' @template normal_methods
 #' @examples 
 #' \dontrun{
 #' # simple example

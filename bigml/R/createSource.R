@@ -19,6 +19,7 @@
 #' @template dots
 #' @details createSource
 #' @template source_return
+#' @template normal_methods
 #' @examples 
 #' \dontrun{
 #' # simple example

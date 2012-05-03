@@ -11,6 +11,7 @@
 #' returned.
 #' @template dots
 #' @template prediction_return
+#' @template normal_methods
 #' @examples 
 #' \dontrun{
 #' # simple example

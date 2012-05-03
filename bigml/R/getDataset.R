@@ -8,6 +8,7 @@
 #' @template dots
 #' @template author
 #' @template dataset_return
+#' @template normal_methods
 getDataset <-
 function (source_id, include_overview = TRUE, ...) 
 {

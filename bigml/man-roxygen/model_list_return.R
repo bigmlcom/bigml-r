@@ -22,7 +22,7 @@
 #' \item{source_status}{logical}
 #' \item{updated}{character}
 #'
-#' If flatten is TRUE and sources_only = FALSE a list of:
+#' If flatten is TRUE and models_only = FALSE a list of:
 #' \item{meta}{list}
 #' \item{models}{data.frame}
 #'
