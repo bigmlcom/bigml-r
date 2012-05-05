@@ -1,6 +1,5 @@
 #' @import RJSONIO plyr RCurl
-.BIGMLAUTH <-
-list(username=NULL, api_key=NULL,setUsername=function(name) username<<-name, setApiKey=function(key) api_key<--key)
+
 .BIGML_URL <-
 "https://bigml.io/andromeda/"
 .DATASET_URL <-
