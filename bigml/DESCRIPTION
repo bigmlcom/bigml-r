@@ -1,0 +1,36 @@
+Package: bigml
+Type: Package
+Title: R bindings for the BigML API
+Version: 0.1
+Date: 2012-04-30
+Authors@R: c(person("Justin", "Donaldson", role=c("aut","cre"), email =
+    "donaldson@bigml.com"))
+Description: The bigml package contains bindings for the BigML API.
+    The package includes methods that provide straightforward access
+    to basic API functionality, as well as methods that accommodate
+    idiomatic R datatypes and concepts.
+License: LGPL-3
+Depends:
+    RJSONIO,
+    RCurl,
+    plyr
+Collate:
+    'bigml-internal.R'
+    'formEncodeURL.R'
+    'bigml-package.R'
+    'createDataset.R'
+    'createModel.R'
+    'createPrediction.R'
+    'createSource.R'
+    'getDataset.R'
+    'getModel.R'
+    'getPrediction.R'
+    'getSource.R'
+    'listDatasets.R'
+    'listModels.R'
+    'listSources.R'
+    'quickDataset.R'
+    'quickModel.R'
+    'quickPrediction.R'
+    'quickSource.R'
+    'setCredentials.R'

@@ -1,0 +1,5 @@
+.Rapp.history
+bash/jjd_api_key.sh
+*.Rcheck
+*.tar.gz
+bigml/man
