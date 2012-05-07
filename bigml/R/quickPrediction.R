@@ -16,7 +16,12 @@
 #' @return A numeric or string value giving the prediction.
 #' @details quickPrediction can operate on a model id string, or a model 
 #'	response object from an earlier request.  The \code{values} are a list of 
-#'	named elements that are used as input.  
+#'	named elements that are used as input.
+#' @examples 
+#' \dontrun{
+#' quickPrediction("model/1", list(Sepal.Width=3.5, Petal.Length=1.4))
+#' # 'setosa'
+#' }
 quickPrediction <-
 function (model, values, name = NULL, prediction_only = TRUE, ...) 
 {
