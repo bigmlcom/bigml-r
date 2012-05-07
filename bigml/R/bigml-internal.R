@@ -66,8 +66,7 @@ function (resource)
     }, update = function(resource_id, ...) {
 		id = .fixid(resource_id)
 		resource = paste(resource, "/", id, sep = "")
-	    result = getURL(.build_url(resource, ...), customrequest = "UPDATE")
-	    result
+	    getURL(.build_url(resource, ...), customrequest = "UPDATE")
 	}
 
 )
