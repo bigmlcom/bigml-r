@@ -34,3 +34,4 @@ Collate:
     'quickPrediction.R'
     'quickSource.R'
     'setCredentials.R'
+    'deleteResource.R'

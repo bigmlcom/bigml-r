@@ -16,6 +16,6 @@
 setCredentials <-
 function (username, api_key) 
 {
-    Sys.setenv(BIGMLUSER=username)
-    Sys.setenv(BIGMLAPIKEY=api_key)
+    Sys.setenv(BIGML_USERNAME=username)
+    Sys.setenv(BIGML_API_KEY=api_key)
 }

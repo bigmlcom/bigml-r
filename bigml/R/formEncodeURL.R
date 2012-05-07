@@ -21,14 +21,14 @@
 #' @examples 
 #' \dontrun{
 #' formEncodeURL(username="user1", api_key="test", limit=100, debug=TRUE)
-#' 
+#' # "?username=user1&api_key=test&limit=100&debug=TRUE"
 #' }
 formEncodeURL <-
 function (a,...) 
 {
     opt_args = list(...)
-	sys_user = Sys.getenv("BIGMLUSER")
-	sys_key = Sys.getenv("BIGMLAPIKEY")
+	sys_user = Sys.getenv("BIGML_USERNAME")
+	sys_key = Sys.getenv("BIGML_API_KEY")
 	if (!"username" %in% opt_args && sys_user != ''){
 		opt_args$username = sys_user
 	}
