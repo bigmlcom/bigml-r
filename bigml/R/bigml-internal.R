@@ -62,8 +62,7 @@ function (resource)
     }, delete = function(resource_id, ...) {
 		id = .fixid(resource_id)
 		resource = paste(resource, "/", id, sep = "")
-        result = getURL(.build_url(resource, ...), customrequest = "DELETE")
-        result
+        getURL(.build_url(resource, ...), customrequest = "DELETE")
     }, update = function(resource_id, ...) {
 		id = .fixid(resource_id)
 		resource = paste(resource, "/", id, sep = "")
