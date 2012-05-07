@@ -59,7 +59,20 @@ function (resource)
         result = fromJSON(result)
         .check_for_code(result)
         result
-    })
+    }, delete = function(resource_id, ...) {
+		id = .fixid(resource_id)
+		resource = paste(resource, "/", id, sep = "")
+        result = getURL(.build_url(resource, ...), customrequest = "DELETE")
+        result
+    }, update = function(resource_id, ...) {
+		id = .fixid(resource_id)
+		resource = paste(resource, "/", id, sep = "")
+	    result = getURL(.build_url(resource, ...), customrequest = "UPDATE")
+	    result
+	}
+
+)
+
 }
 .build_url <-
 function (request, ...) 
