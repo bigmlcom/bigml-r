@@ -67,5 +67,3 @@ test_that("Delete operations work",{
 	expect_true(deleteResource(qds))
 	expect_true(deleteResource(qm))		
 })
-	
-	
