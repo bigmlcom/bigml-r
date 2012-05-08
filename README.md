@@ -23,6 +23,8 @@ These tests compare the class structure of bigml responses to the expected class
 
 It requires the [testthat](http://cran.r-project.org/web/packages/testthat/index.html) library by Hadley Wickham.  Simply run the script in R while in the project directory
 
+It is necessary to run setCredentials() beforehand, or to set BIGML_USERNAME 
+and BIGML_API_KEY appropriately in your .Renviron file.
 
 There are some small utilities (misc.R) that make it easier to manipulate the complex datastructures returned by R and the bigml API.
 
