@@ -15,8 +15,8 @@ deleteResource <-
 function (resource_id, ...){
     res = ''
     if (class(resource_id) == "list") {
-        if ("resource" %in% names(x)) {
-            res = x$resource
+        if ("resource" %in% names(resource_id)) {
+            res = resource_id$resource
         }
         else {
             stop("argument doesn't apear to be a valid BigML response")
@@ -28,13 +28,13 @@ function (resource_id, ...){
         stop("wrong type for resource_id")
     }
 
-    vals = strsplit(resource_id, '/')
+    vals = strsplit(res, '/')
     vals = vals[[1]]
     resources = c("source","dataset","model","prediction")
     if (! vals[1] %in% resources || length(vals) != 2){
         stop("illegal resource id")
     }
     url = paste(.BIGML_URL,vals[1],sep='')
-    response = .basic_api(url)$delete(resource_id, ...)
+    response = .basic_api(url)$delete(res, ...)
     return(response =='')
 }
