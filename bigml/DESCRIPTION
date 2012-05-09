@@ -1,7 +1,7 @@
 Package: bigml
 Type: Package
 Title: R bindings for the BigML API
-Version: 0.1
+Version: 0.1-1
 Date: 2012-04-30
 Authors@R: c(person("Justin", "Donaldson", role=c("aut","cre"), email =
     "donaldson@bigml.com"))
