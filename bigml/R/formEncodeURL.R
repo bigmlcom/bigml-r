@@ -9,7 +9,7 @@
 #'	advanced options that are otherwise undocumented here.  For instance, it's 
 #'	possible to filter and/or sort on a number of different api requests, 
 #'	using a number of different fields (e.g., see the documentation on 
-#'	\href{https://bigml.com/developers/datasets#d_list}{listing and sorting 
+#'	\href{https://bigml.com/developers/datasets\#d_list}{listing and sorting 
 #'	datasets}.) 
 #'	Other usage includes specifying \code{username} and \code{api_key} 
 #'	for individual API requests; or \code{limit} or \code{offset} parameters

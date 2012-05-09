@@ -3,7 +3,7 @@
 #' \tabular{ll}{
 #' Package: \tab bigml\cr
 #' Type: \tab Package\cr
-#' Version: \tab 0.1\cr
+#' Version: \tab 0.1-1\cr
 #' Date: \tab 20012-04-30\cr
 #' License: \tab GPL (>= 2)\cr
 #' LazyLoad: \tab yes\cr
