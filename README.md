@@ -28,7 +28,7 @@ code in run_tests.R in the project root in order to run the tests.
 It requires the
 [testthat](http://cran.r-project.org/web/packages/testthat/index.html)
 library by Hadley Wickham.  Simply run the script in R while in the
-project directory
+project directory by executing "R -f bundle.R".
 
 It is necessary to run setCredentials() beforehand, or to set
 `BIGML_USERNAME` and `BIGML_API_KEY` appropriately in your .Renviron

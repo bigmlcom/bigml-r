@@ -7,7 +7,6 @@
 #' \item{dataset}{character}
 #' \item{dataset_status}{logical}
 #' \item{description}{character}
-#' \item{holdout}{numeric}
 #' \item{locale}{character}
 #' \item{max_columns}{numeric}
 #' \item{max_rows}{numeric}

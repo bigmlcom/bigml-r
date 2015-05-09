@@ -1,7 +1,7 @@
 #' Creating BigML Datasets
-#' @export 
-#' @templateVar family_name dataset
-#' @template family
+#' @export
+#' @family dataset methods
+#' @references \url{https://bigml.com/developers/datasets}
 #' @param source_id The relevant source id used to build the dataset.
 #' @param field_ids A list of field ids and field properties.  See example.
 #' @param name The name for the dataset.
@@ -9,7 +9,7 @@
 #' @template dots
 #' @template dataset_return
 #' @template normal_methods
-#' @examples 
+#' @examples
 #' \dontrun{
 #' # simple create dataset example
 #' createDataset("source/1")
@@ -18,21 +18,16 @@
 #' }
 #' @template author
 createDataset <-
-function (source_id, field_ids = NULL, name = NULL, size = NULL, ...) 
+function (source_id, field_ids = NULL, name = NULL, size = NULL, ...)
 {
     option = list()
     option$source = source_id
-    if (!is.null(field_ids)) 
+    if (!is.null(field_ids))
         option$fields = field_ids
-    if (!is.null(name)) 
+    if (!is.null(name))
         option$name = name
-    if (!is.null(size)) 
+    if (!is.null(size))
         option$size = size
-    response = .basic_api(.DATASET_URL)$postJson(option, ...)
-    while (response$code == 201) {
-        message("Dataset creation in progress...")
-        Sys.sleep(5)
-        response = getDataset(response$resource)
-    }
-    return(response)
+    message("Dataset creation in progress...")
+    return(.basic_api(.DATASET_URL)$postJson(option, ...))
 }
