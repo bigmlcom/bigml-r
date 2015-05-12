@@ -50,16 +50,8 @@ test_that("Creation operations work",{
 	qm <<- quickModel(iris)
 	# and predictions
 	qp <<- quickPrediction(qm,iris[1,])
-	expect_that(lapply(qs,class), is_equivalent_to(dummy_source_classes))
-	expect_that(lapply(qds,class), is_equivalent_to(dummy_dataset_classes))
-	expect_that(lapply(qm,class), is_equivalent_to(dummy_model_classes))
-	expect_equal(qp, 'setosa')
-})
 
-test_that("List operations work",{
-	expect_that(lapply(listSources(), class), is_equivalent_to(dummy_source_list_classes))
-	expect_that(lapply(listDatasets(), class), is_equivalent_to(dummy_dataset_list_classes))
-	expect_that(lapply(listModels(), class), is_equivalent_to(dummy_model_list_classes))
+	expect_equal(qp, 'setosa')
 })
 
 test_that("Delete operations work",{

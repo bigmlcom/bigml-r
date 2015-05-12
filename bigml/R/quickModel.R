@@ -41,18 +41,7 @@ function (data, input_fields = names(data), objective_fields = tail(names(data),
     }
     if (!is.null(input_field_ids))
         option$input_fields = input_field_ids
-    objective_field_ids = NULL
-    if (!is.null(objective_fields)) {
-        objective_field_ids = sapply(objective_fields, function(x) {
-            id = .resolve_field_id(x, dresponse$fields)
-            if (is.null(id)) {
-                stop(paste("objective field is not in dataframe:",
-                  x))
-            }
-            return(as.character(id))
-        })
-        objective_field_ids = as.vector(objective_field_ids)
-    }
+
     message("Model creation in progress...")
     return(.basic_api(.MODEL_URL)$postJson(option, ...))
 }

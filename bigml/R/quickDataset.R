@@ -46,10 +46,6 @@ function (data, fields = names(data), name = paste(deparse(substitute(data)),
             return("categorical")
         else return("text")
     })
-    option$fields = lapply(sresponse$fields, function(x) {
-        type = as.character(type_classes[x$column_number + 1])
-        list(optype = type)
-    })
     option$name = name
     option$source = sresponse$resource
     if (is.null(size))
