@@ -1,10 +1,10 @@
 Package: bigml
 Type: Package
-Title: R bindings for the BigML API
+Title: Bindings for the BigML API
 Version: 0.1.2
 Date: 2015-05-08
 Authors@R: c(person("Leon", "Hwang", role=c("cre", "aut"), email="hwang@bigml.com"))
-Description: The bigml package contains bindings for the BigML API.
+Description: The 'bigml' package contains bindings for the BigML API.
     The package includes methods that provide straightforward access
     to basic API functionality, as well as methods that accommodate
     idiomatic R data types and concepts.
