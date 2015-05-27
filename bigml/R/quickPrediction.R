@@ -1,7 +1,7 @@
 #' Quickly Creating BigML Predictions
-#' @export 
-#' @templateVar family_name prediction
-#' @template family
+#' @export
+#' @family prediction methods
+#' @references \url{https://bigml.com/developers/predictions}
 #' @family quick methods
 #' @param model A character string or response object containing a valid model
 #' id value.
@@ -10,20 +10,20 @@
 #' @param name A string giving the name of the prediction.
 #' @param prediction_only if TRUE, only the predicted value is returned.
 #' 	Otherwise, the full API response is returned.
-#' @template dots 
+#' @template dots
 #' @template prediction_return
 #' @template author
 #' @return A numeric or string value giving the prediction.
-#' @details quickPrediction can operate on a model id string, or a model 
-#'	response object from an earlier request.  The \code{values} are a list of 
+#' @details quickPrediction can operate on a model id string, or a model
+#'	response object from an earlier request.  The \code{values} are a list of
 #'	named elements that are used as input.
-#' @examples 
+#' @examples
 #' \dontrun{
 #' quickPrediction("model/1", list(Sepal.Width=3.5, Petal.Length=1.4))
 #' # 'setosa'
 #' }
 quickPrediction <-
-function (model, values, name = NULL, prediction_only = TRUE, ...) 
+function (model, values, name = NULL, prediction_only = TRUE, ...)
 {
     model_id = .resolve_resource_id(model, "model")
     if (is.null(names(values))) {
@@ -41,11 +41,11 @@ function (model, values, name = NULL, prediction_only = TRUE, ...)
         idlist[m_id] = values[v]
     }
     option$input_data = idlist
-    if (!is.null(name)) 
+    if (!is.null(name))
         option$name = name
     response = .basic_api(.PREDICTION_URL)$postJson(option, ...)
-    prediction = response$prediction
-    if (prediction_only) 
-        prediction = as.vector(response$prediction)
-    return(prediction)
+    if (prediction_only)
+        return(as.vector(response$prediction))
+    else
+        return(response)
 }

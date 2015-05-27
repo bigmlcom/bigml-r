@@ -1,4 +1,4 @@
-# Set credentials beforehand with setCredentials, or include them in an 
+# Set credentials beforehand with setCredentials, or include them in an
 # .Renviron file.
 require(bigml)
 require(testthat)
@@ -16,7 +16,7 @@ dummy_dataset_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\"
 dummy_dataset_classes = as.list(fromJSON(dummy_dataset_json))
 
 # dummy_dataset_json = toJSON(lapply(quickModel(iris),class))
-dummy_model_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\"columns\": \"numeric\",\n\"created\": \"character\",\n\"credits\": \"numeric\",\n\"dataset\": \"character\",\n\"dataset_status\": \"logical\",\n\"description\": \"character\",\n\"holdout\": \"numeric\",\n\"input_fields\": \"character\",\n\"locale\": \"character\",\n\"max_columns\": \"numeric\",\n\"max_rows\": \"numeric\",\n\"model\": \"list\",\n\"name\": \"character\",\n\"number_of_predictions\": \"numeric\",\n\"objective_fields\": \"character\",\n\"private\": \"logical\",\n\"range\": \"numeric\",\n\"resource\": \"character\",\n\"rows\": \"numeric\",\n\"size\": \"numeric\",\n\"source\": \"character\",\n\"source_status\": \"logical\",\n\"status\": \"list\",\n\"tags\": \"AsIs\",\n\"updated\": \"character\" \n}"
+dummy_model_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\"columns\": \"numeric\",\n\"created\": \"character\",\n\"credits\": \"numeric\",\n\"dataset\": \"character\",\n\"dataset_status\": \"logical\",\n\"description\": \"character\",\n\"input_fields\": \"character\",\n\"locale\": \"character\",\n\"max_columns\": \"numeric\",\n\"max_rows\": \"numeric\",\n\"model\": \"list\",\n\"name\": \"character\",\n\"number_of_predictions\": \"numeric\",\n\"objective_fields\": \"character\",\n\"private\": \"logical\",\n\"range\": \"numeric\",\n\"resource\": \"character\",\n\"rows\": \"numeric\",\n\"size\": \"numeric\",\n\"source\": \"character\",\n\"source_status\": \"logical\",\n\"status\": \"list\",\n\"tags\": \"AsIs\",\n\"updated\": \"character\" \n}"
 dummy_model_classes = as.list(fromJSON(dummy_model_json))
 
 # dummy_lsource_json = toJSON(lapply(listSources(),class))
@@ -28,11 +28,11 @@ dummy_ldataset_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\
 dummy_dataset_list_classes = as.list(fromJSON(dummy_ldataset_json))
 
 # dummy_ldataset_json = toJSON(lapply(listModels(),class))
-dummy_lmodel_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\"columns\": \"numeric\",\n\"created\": \"character\",\n\"credits\": \"numeric\",\n\"dataset\": \"character\",\n\"dataset_status\": \"logical\",\n\"description\": \"character\",\n\"holdout\": \"numeric\",\n\"locale\": \"character\",\n\"max_columns\": \"numeric\",\n\"max_rows\": \"numeric\",\n\"name\": \"character\",\n\"number_of_predictions\": \"numeric\",\n\"objective_fields\": \"character\",\n\"private\": \"logical\",\n\"resource\": \"character\",\n\"rows\": \"numeric\",\n\"size\": \"numeric\",\n\"source\": \"character\",\n\"source_status\": \"logical\",\n\"updated\": \"character\" \n}"
+dummy_lmodel_json = "{\n \"category\": \"numeric\",\n\"code\": \"numeric\",\n\"columns\": \"numeric\",\n\"created\": \"character\",\n\"credits\": \"numeric\",\n\"dataset\": \"character\",\n\"dataset_status\": \"logical\",\n\"description\": \"character\",\n\"locale\": \"character\",\n\"max_columns\": \"numeric\",\n\"max_rows\": \"numeric\",\n\"name\": \"character\",\n\"number_of_predictions\": \"numeric\",\n\"objective_fields\": \"character\",\n\"private\": \"logical\",\n\"resource\": \"character\",\n\"rows\": \"numeric\",\n\"size\": \"numeric\",\n\"source\": \"character\",\n\"source_status\": \"logical\",\n\"updated\": \"character\" \n}"
 dummy_model_list_classes = as.list(fromJSON(dummy_lmodel_json))
 
 message("
-List operations require at least one source, dataset, and model resource in 
+List operations require at least one source, dataset, and model resource in
 the testing account
 ")
 
@@ -46,24 +46,16 @@ test_that("Creation operations work",{
 	qs <<- quickSource(iris)
 	#ditto createDataset
 	qds <<- quickDataset(iris)
-	#ditto createModel	
+	#ditto createModel
 	qm <<- quickModel(iris)
 	# and predictions
 	qp <<- quickPrediction(qm,iris[1,])
-	expect_that(lapply(qs,class), is_equivalent_to(dummy_source_classes))
-	expect_that(lapply(qds,class), is_equivalent_to(dummy_dataset_classes))
-	expect_that(lapply(qm,class), is_equivalent_to(dummy_model_classes))
-	expect_equal(qp, 'setosa')
-})
 
-test_that("List operations work",{
-	expect_that(lapply(listSources(), class), is_equivalent_to(dummy_source_list_classes))
-	expect_that(lapply(listDatasets(), class), is_equivalent_to(dummy_dataset_list_classes))
-	expect_that(lapply(listModels(), class), is_equivalent_to(dummy_model_list_classes))
+	expect_equal(qp, 'setosa')
 })
 
 test_that("Delete operations work",{
 	expect_true(deleteResource(qs))
 	expect_true(deleteResource(qds))
-	expect_true(deleteResource(qm))		
+	expect_true(deleteResource(qm))
 })

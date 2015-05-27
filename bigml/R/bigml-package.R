@@ -19,7 +19,7 @@
 #' @docType package
 #' @template author
 #' @keywords package
-#' @examples 
+#' @examples
 #' \dontrun{
 #' 	# set default credentials
 #' 	setCredentials('username', 'key')
@@ -27,8 +27,9 @@
 #' 	quickPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4))
 #'
 #' 	# use specific credentials
-#' 	quickPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4), username='someuser', api_key='somekey')
-#'  
+#' 	quickPrediction(model, c(Petal.Width=0.2, Petal.Length=1.4),
+#'     username='someuser', api_key='somekey')
+#'
 #'	# list most recent sources
 #'  listSources()
 #'

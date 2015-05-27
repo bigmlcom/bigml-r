@@ -4,3 +4,5 @@ bash/jjd_api_key.sh
 *.Rcheck
 *.tar.gz
 bigml/man
+.Rproj.user
+packrat/lib*/
